@@ -65,6 +65,7 @@ const AddUser = ({ props: {role, action} }) => {
 
   const handleFinish = () => {
     dispatch(createUser({formData, toast}));
+    setFormData({});
   }
 
   useEffect(() => {

@@ -1,13 +1,24 @@
 import React, { useState } from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate} from 'react-router-dom';
+import decode from 'jwt-decode';
 
 import { logOut } from '../redux/userProvider';
 
 const Nav = () => {
   const dispatch = useDispatch();
   const navigate= useNavigate();
+
+  const { user } = useSelector((state) => ({ ...state.user }));
+
+  const token = user?.token;
+	if(token){
+		const decodedToken = decode(token);
+		if(decodedToken.exp * 1000 < new Date().getTime()){
+			dispatch(logOut());
+		};
+	};
 
   const pathname = window.location.pathname;
 

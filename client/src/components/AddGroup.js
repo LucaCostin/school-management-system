@@ -49,6 +49,7 @@ const AddGroup = () => {
 
   const handleFinish = () => {
     dispatch(createGroup({formData, toast}));
+    setFormData({});
   }
 
   useEffect(() => {

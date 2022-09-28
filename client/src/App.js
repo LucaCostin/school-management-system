@@ -14,6 +14,7 @@ import Admins from './routes/Admins';
 import Teachers from './routes/Teachers';
 import Groups from './routes/Groups';
 import AdminRoute from './routes/AdminRoute';
+import LoggedRoute from './routes/LoggedRoute';
 import { setUser } from './redux/userProvider';
 
 function App() {
@@ -30,8 +31,8 @@ function App() {
     <div>
       <ToastContainer />
       <Routes>
-        <Route path='/' element={<LoginEmail />} />
-        <Route path='/login' element={<LoginPassword />} />
+        <Route path='/' element={<LoggedRoute><LoginEmail /></LoggedRoute>} />
+        <Route path='/login' element={<LoggedRoute><LoginPassword /></LoggedRoute>} />
         <Route path='/home' element={<AdminRoute><Home /></AdminRoute>} />
         <Route path='/students' element={<AdminRoute><Students /></AdminRoute>} />
         <Route path='/teachers' element={<AdminRoute><Teachers /></AdminRoute>} />
