@@ -12,23 +12,26 @@ In mod normal rutele ce nu pot fi accesate decat cu un scope ar trebui sa dea re
 
 Structura proiectului:
 
-  In folderul principal se afla 2 subfolder: 
+  In folderul principal se afla 2 subfoldere:
+  
     -client: fisierele create pentru partea de front-end
     -server: fisierele create pentru partea de back-end
 
 
   Folderul server este structurat astfel:
-    - controllers: este folderul in care se află fisierele cu functiile ce primesc requesturile de pe partea de client, proceseaza acele requesturi si trimit un                          response inapoi.
+  
+    - controllers: este folderul in care se află fisierele cu functiile ce primesc requesturile de pe partea de client, proceseaza acele requesturi si trimit un       response inapoi.
     - middleware:
-          - emailMiddleware.js: in acest fisier se afla functia ce intercepteza header-ul email, este folosit pentru a ajuta la login dat fiind ca intai se introduce               emailul si apoi verifica in baza de date ce tip de utilizator e asociat cu acest email ca mai apoi sa se introduca si parola.
+          - emailMiddleware.js: in acest fisier se afla functia ce intercepteza header-ul email, este folosit pentru a ajuta la login dat fiind ca intai se introduce   emailul si apoi verifica in baza de date ce tip de utilizator e asociat cu acest email ca mai apoi sa se introduca si parola.
           
-          - verifyAuth.js: in acest fisier se afla functia ce intercepteaza header-ul trimis de catre front-end, in care se afla token-ul de autentificare, verifica ce           rol are utilizatorul, pentru a da acces la actiuni, iar apoi trimite mai departe catre server un request cu date despre utilizator.
+          - verifyAuth.js: in acest fisier se afla functia ce intercepteaza header-ul trimis de catre front-end, in care se afla token-ul de autentificare, verifica ce rol are utilizatorul, pentru a da acces la actiuni, iar apoi trimite mai departe catre server un request cu date despre utilizator.
           
     -models: in acest folder se afla fisierele cu schemele necesare pentru a crea si stoca datele in MongoDB.
     -routes: folderul de fisiere in care se afla endpointurile cu controllerele aplicatiei create de express, vor fi accesate din front-end.
     -index.js: in acest fisier se afla aplicatia express, unde este configurata si conectata la baza de date cu string-ul dat de MongoDB.
     
   Folderul client este structurat astfel:
+  
     -public:
        -index.html: radacina aplicatiei ReactJs.
        
